@@ -1,0 +1,29 @@
+{% extends 'base.html' %}
+{% block content %}
+Welcome to Portion(s) Allocator based on the below Items:-
+    <div>
+        <table class="table table-bordered table-hover">
+            <thead>
+                <tr>
+                    <th>Id</th>
+                    <th>Name</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for item in items %}
+                <tr>
+                    <td>{{ item.id }}</td>
+                    <td>{{ item.name }}</td>
+                </tr>
+            {% endfor %}
+            </tbody>
+        </table>
+    </div>
+    <div>
+        <form method="POST" class="post-form">
+            {% csrf_token %}
+            {{ form.as_table }}
+        <button type="submit" class="save">Save</button>
+        </form>
+    </div>
+{% endblock %}

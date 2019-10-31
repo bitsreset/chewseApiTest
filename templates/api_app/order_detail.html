@@ -1,0 +1,17 @@
+{% extends 'base.html' %}
+{% block content %}
+    You Saved your Order <b>{{ post.order_dict }}</b> and  <b>Portions : {{ post.portions }}</b> Successfully.<br>
+    We are working on it, you will recieve a confirmation shortly.<br>
+    Allocations are:- <br>
+
+     {% if allocation_list %}
+        {% for item in allocation_list %}
+            <div>
+            {{ item }}
+            </div>
+        {% endfor %}
+      {% else %}
+        {{ post.order_dict }}
+    {% endif %}
+
+{% endblock %}
